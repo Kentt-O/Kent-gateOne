@@ -26,14 +26,28 @@ public class RandomArithmeticII{
 					System.out.println("Correct !!");
 					correct_answer_count++;
 				}
-			else{
-				System.out.println("Wrong answer");
-				wrong_answer_count++;
+				else {
+					System.out.println("Wrong answer");
+					wrong_answer_count++;
 
 			}
-			if (digitOne > 5 && digitOne <= 10 ){
+			else if (digitOne > 5 && digitOne <= 10 ){
 				int random_arithmetic = digit_one - digit_two;
 				System.out.println(digit_one, " - ", digit_two);
+				System.out.println("Enter the answer: "));
+				int userResponse = input.nextInt();
+
+				if (random_arithmetic == user_response){
+					System.out.println("Correct !!");
+					correct_answer_count++;
+				}
+				else{
+					System.out.println("Wrong answer");
+					wrong_answer_count++;
+			}
+			if (digitOne > 10 && digitOne <= 15 ){
+				int random_arithmetic = digit_one * digit_two;
+				System.out.println(digit_one, " X ", digit_two);
 				System.out.println("Enter the answer: "));
 				int userResponse = input.nextInt();
 
@@ -46,14 +60,42 @@ public class RandomArithmeticII{
 				wrong_answer_count++;
 
 			}
+			else if (digitOne > 10 && digitOne <= 15 ){
+				int random_arithmetic = digit_one * digit_two;
+				System.out.println(digit_one, " X ", digit_two);
+				System.out.println("Enter the answer: "));
+				int userResponse = input.nextInt();
 
+				if (random_arithmetic == user_response){
+					System.out.println("Correct !!");
+					correct_answer_count++;
+				}
+				else{
+					System.out.println("Wrong answer");
+					wrong_answer_count++;
 
+			}
+			else {
+				int random_arithmetic = digit_one * digit_two;
+				System.out.println(digit_one, " X ", digit_two);
+				System.out.println("Enter the answer: "));
+				int userResponse = input.nextInt();
 
+					if (random_arithmetic == user_response){
+					System.out.println("Correct !!");
+					correct_answer_count++;
+					}
+					else{
+						System.out.println("Wrong answer");
+						wrong_answer_count++;
+					}
 
 			} 
 			
-
 		}
+		System.out.println("Correct answers =",correct_answer_count);
+		System.out.println("Wrong answers =",wrong_answer_count);
+
 
 	}
 
