@@ -20,7 +20,6 @@ public class RandomArithmetic{
 			int operator = operatorChoice.nextInt(4));
 
 			String operatorSwitch = """
-			int bad
 			int good
 			""";
 

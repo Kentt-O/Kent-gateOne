@@ -8,8 +8,8 @@ public class RandomArithmeticII{
 		Scanner input = new Scanner(System.in);
 
 
-		int correct_answer_count = 0;
-		int wrong_answer_count = 0;
+		int correctAnswerCount = 0;
+		int wrongAnswerCount = 0;
 
 		for(int count = 1; count <=10; count++){
 			
@@ -18,83 +18,72 @@ public class RandomArithmeticII{
 			int digitTwo = random.nextInt(10)+1;
 			
 			if (digitOne < 5){
-				int random_arithmetic = digit_one + digit_two;
-				System.out.println(digit_one, " + ", digit_two);
-				System.out.println("Enter the answer: "));
+				int randomArithmetic = digitOne + digitTwo;
+				System.out.println("\nWhat is "+digitOne +" + "+ digitTwo);
+				System.out.println("Enter the answer: ");
 				int userResponse = input.nextInt();
-				if (random_arithmetic == user_response){
+				if (randomArithmetic == userResponse){
 					System.out.println("Correct !!");
-					correct_answer_count++;
+					correctAnswerCount++;
 				}
 				else {
 					System.out.println("Wrong answer");
-					wrong_answer_count++;
+					wrongAnswerCount++;
+				}
 
 			}
 			else if (digitOne > 5 && digitOne <= 10 ){
-				int random_arithmetic = digit_one - digit_two;
-				System.out.println(digit_one, " - ", digit_two);
-				System.out.println("Enter the answer: "));
+				int randomArithmetic = digitOne - digitTwo;
+				System.out.println("\nWhat is "+digitOne+ " - "+ digitTwo);
+				System.out.println("Enter the answer: ");
 				int userResponse = input.nextInt();
 
-				if (random_arithmetic == user_response){
+				if (randomArithmetic == userResponse){
 					System.out.println("Correct !!");
-					correct_answer_count++;
+					correctAnswerCount++;
 				}
 				else{
 					System.out.println("Wrong answer");
-					wrong_answer_count++;
-			}
-			if (digitOne > 10 && digitOne <= 15 ){
-				int random_arithmetic = digit_one * digit_two;
-				System.out.println(digit_one, " X ", digit_two);
-				System.out.println("Enter the answer: "));
-				int userResponse = input.nextInt();
-
-				if (random_arithmetic == user_response){
-					System.out.println("Correct !!");
-					correct_answer_count++;
+					wrongAnswerCount++;
 				}
-			else{
-				System.out.println("Wrong answer");
-				wrong_answer_count++;
-
 			}
+
 			else if (digitOne > 10 && digitOne <= 15 ){
-				int random_arithmetic = digit_one * digit_two;
-				System.out.println(digit_one, " X ", digit_two);
-				System.out.println("Enter the answer: "));
+				int randomArithmetic = digitOne * digitTwo;
+				System.out.println("\nWhat is "+digitOne +" X "+ digitTwo);
+				System.out.println("Enter the answer: ");
 				int userResponse = input.nextInt();
 
-				if (random_arithmetic == user_response){
+				if (randomArithmetic == userResponse){
 					System.out.println("Correct !!");
-					correct_answer_count++;
+					correctAnswerCount++;
 				}
 				else{
 					System.out.println("Wrong answer");
-					wrong_answer_count++;
-
+					wrongAnswerCount++;
+				}
 			}
+
 			else {
-				int random_arithmetic = digit_one * digit_two;
-				System.out.println(digit_one, " X ", digit_two);
-				System.out.println("Enter the answer: "));
+				int randomArithmetic = digitOne / digitTwo;
+				System.out.println("\nWhat is "+digitOne +" / "+ digitTwo);
+				System.out.println("Enter the answer: ");
 				int userResponse = input.nextInt();
 
-					if (random_arithmetic == user_response){
+				if (randomArithmetic == userResponse){
 					System.out.println("Correct !!");
-					correct_answer_count++;
-					}
-					else{
-						System.out.println("Wrong answer");
-						wrong_answer_count++;
-					}
+					correctAnswerCount++;
+				}
+				else{
+					System.out.println("Wrong answer");
+					wrongAnswerCount++;
+				}
+			}
 
-			} 
-			
+						
 		}
-		System.out.println("Correct answers =",correct_answer_count);
-		System.out.println("Wrong answers =",wrong_answer_count);
+		System.out.println("\nCorrect answers = " + correctAnswerCount);
+		System.out.println("Wrong answers = " + wrongAnswerCount);
 
 
 	}
