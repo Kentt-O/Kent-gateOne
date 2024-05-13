@@ -19,8 +19,9 @@ public class MenstrualApp {
 				System.out.println("Days since last menstrual cycle: " + days);
 			}
 
-		int ovulationRange = calculateOvulation(startDateTwo);
-				System.out.println("Ovulation : " + ovulationRange + " days");
+		String [ ] ovulationRange = calculateOvulation(startDateTwo);
+				System.out.println("Ovulation period: " + ovulationRange[0] + " to " + ovulationRange[2]);
+			
     	}
 
     	public static int calculateMenstrualCycle(String startDate, String startDateTwo) {
@@ -29,13 +30,24 @@ public class MenstrualApp {
        		return Period.between(menstrualCycleStartDate, currentDate).getDays();
     	}
 
-	public static int calculateOvulation(String startDateTwo) {
+	public static String [ ]  calculateOvulation(String startDateTwo) {
 		LocalDate date = LocalDate.parse(startDateTwo);
 		LocalDate returnValue  = date.minusDays(14); 
 		LocalDate  daysBefore = returnValue.minusDays(2); 
 		LocalDate  daysAfter = returnValue.plusDays(2); 
-		return Period.between(daysBefore, daysAfter).getDays();
+		//return Period.between(daysBefore, daysAfter).getDays();
+
+		String [ ] dateRange = new String[3];
+    		dateRange[0] = daysBefore.toString();
+    		dateRange[1] = returnValue.toString();
+    		dateRange[2] = daysAfter.toString();
+
+    		return dateRange;
 	}
 
-	public static 
+	//public static int calculateFertiity() {
+		//LocalDate  daysBefore = calculateOvulation.returnValue.minusDays(2);
+		//LocalDate  fertileDayStart = dayBefore.minusDays(5);
+		//return Period.between(daysBefore, fertileDayStart).getDays();
+	//}
 }
