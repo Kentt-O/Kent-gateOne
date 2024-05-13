@@ -20,7 +20,7 @@ public class MenstrualApp {
 			}
 
 		int ovulationRange = calculateOvulation(startDateTwo);
-				System.out.println("Ovulation : " + ovulationRange);
+				System.out.println("Ovulation : " + ovulationRange + " days");
     	}
 
     	public static int calculateMenstrualCycle(String startDate, String startDateTwo) {
@@ -37,5 +37,5 @@ public class MenstrualApp {
 		return Period.between(daysBefore, daysAfter).getDays();
 	}
 
-	
+	public static 
 }
