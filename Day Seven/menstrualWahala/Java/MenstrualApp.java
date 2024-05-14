@@ -3,16 +3,16 @@ import java.time.temporal.ChronoUnit;
 import java.time.Period;
 import java.util.Scanner;
 
-public class MenstrualApp {
+public class MenstrualAppII {
     	public static void main(String... args) {
         	Scanner scanner = new Scanner(System.in);
 
-		System.out.println("=".repeat(25));
-		System.out.println("Avoid Belle Calculator");
-		System.out.println("=".repeat(25));
+		System.out.println("=".repeat(26));
+		System.out.println("  Avoid Belle Calculator");
+		System.out.println("=".repeat(26));
 
 		String prompt = """
-		\n Select one
+		KINDLY SELECT\n
 		"1" -> Get menstration tips
 		"2" -> Calculate cycle length and know safe days
 		"3" -> Pregnancy tips
@@ -39,13 +39,13 @@ public class MenstrualApp {
 
 				long days = calculateMenstrualCycle(startDate, startDateTwo);
 					if (days < 21 || days >35){
-						System.out.println("Cycle Length (Days): " + days + " you have an abnormal cycle length, please see a doctor");
+						System.out.println("\nCycle Length (Days): " + days + " you have an abnormal cycle length, please see a doctor");
 					}else{
-						System.out.println("Cycle Length (Days): " + days);
+						System.out.println("\nCycle Length (Days): " + days);
 					}
 
 				String [ ] ovulationRange = calculateOvulation(startDateTwo);
-				System.out.println("Ovulation period: " + ovulationRange[0] + " to " + ovulationRange[2]);
+				System.out.println("\nOvulation period: " + ovulationRange[0] + " to " + ovulationRange[2]);
 				System.out.println("\nYou are fertile from: "+ ovulationRange[3] + " to " + ovulationRange[4] + "\nYou have a high chance of getting pregnant");
 
 				break;
@@ -98,34 +98,31 @@ public class MenstrualApp {
 	String tips = """
 	DIET AND LIFESTYLE CHANGES:\n\n
         Examine your diet: 
-			Eating too little food or not getting the right mix of nutrients may stress vital organs
-			examples include,your hypothalamus, pituitary, and adrenal glands. 
-			These glands regulate your body’s hormone balance, which can affect your periods.\n
+		Eating too little food or not getting the right mix of nutrients may stress vital organs,
+		examples include,your hypothalamus, pituitary, and adrenal glands. 
+		These glands regulate your body’s hormone balance, which can affect your periods.\n
         Skip the low-carb diet: 
-			Not getting enough carbs can lead to irregular or even missed cycles (amenorrhea). 
-			Experts recommend getting 225 to 325 grams of carbs per day if you’re consuming a 2,000-calorie diet.\n
+		Not getting enough carbs can lead to irregular or even missed cycles (amenorrhea). 
+		Experts recommend getting 225 to 325 grams of carbs per day if you’re consuming a 2,000-calorie diet.\n
         Say no to high-fiber diets: 
-			Eating too much fiber may affect ovulation, making periods late or causing you to skip them altogether. 
-			Experts recommend getting 25 to 30 grams of fiber per day.\n
+		Eating too much fiber may affect ovulation, making periods late or causing you to skip them altogether. 
+		Experts recommend getting 25 to 30 grams of fiber per day.\n
         Make sure you’re getting enough fats: 
-			Consuming enough fats may support hormone levels and ovulation. 
-			The Cleveland Clinic recommends that 20 to 35 percent of your daily calories should be from fat.\n
+		Consuming enough fats may support hormone levels and ovulation. 
+		The Cleveland Clinic recommends that 20 to 35 percent of your daily calories should be from fat.\n
         Maintain a healthy weight: 
-			Your weight can impact your menstrual cycle. 
-			Maintaining a healthy weight through a balanced diet and regular exercise can help regulate your periods.\n
+		Your weight can impact your menstrual cycle. 
+		Maintaining a healthy weight through a balanced diet and regular exercise can help regulate your periods.\n
         Get regular exercise: 
-			Regular physical activity can help regulate your menstrual cycle.\n
+		Regular physical activity can help regulate your menstrual cycle.\n
         Practice good sleep habits: 
-			Lack of sleep or poor sleep quality can affect your menstrual cycle. Try to get at least 7-9 hours of sleep per night.\n
+		Lack of sleep or poor sleep quality can affect your menstrual cycle. Try to get at least 7-9 hours of sleep per night.\n
         Reduce stress: High levels of stress can affect your menstrual cycle. 
-			Consider stress-reducing activities like yoga, meditation, or other relaxation techniques.\n
+		Consider stress-reducing activities like yoga, meditation, or other relaxation techniques.\n
 	""";
     		return tips;
 
 	}
 
-
-	//public static int calculateSafePeriod() {
-		//LocalDate 
 
 }
