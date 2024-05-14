@@ -9,7 +9,7 @@ public class MenstrualApp {
         	System.out.println("Enter the start date of your last menstrual cycle (YYYY-MM-DD): ");
         	String startDate = scanner.nextLine();
         	
-		System.out.println("Enter the start date of your current menstrual cycle (YYYY-MM-DD): ");
+		System.out.println("\nEnter the start date of your current menstrual cycle (YYYY-MM-DD): ");
 		String startDateTwo = scanner.nextLine();
 
 		int days = calculateMenstrualCycle(startDate, startDateTwo);
@@ -21,6 +21,7 @@ public class MenstrualApp {
 
 		String [ ] ovulationRange = calculateOvulation(startDateTwo);
 				System.out.println("Ovulation period: " + ovulationRange[0] + " to " + ovulationRange[2]);
+				System.out.println("\nYou are fertile from: "+ ovulationRange[3] + " to " + ovulationRange[4] + "\nYou have a high chance of getting pregnant");
 			
     	}
 
@@ -35,30 +36,19 @@ public class MenstrualApp {
 		LocalDate returnValue  = date.minusDays(14); 
 		LocalDate  daysBefore = returnValue.minusDays(2); 
 		LocalDate  daysAfter = returnValue.plusDays(2); 
+		LocalDate  fertileDayStart = daysBefore.minusDays(5);
+		LocalDate  fertileDayStop = daysAfter.plusDays(2);
 		//return Period.between(daysBefore, daysAfter).getDays();
 
-		String [ ] dateRange = new String[3];
+		String [ ] dateRange = new String[5];
     		dateRange[0] = daysBefore.toString();
     		dateRange[1] = returnValue.toString() ;
     		dateRange[2] = daysAfter.toString();
+		dateRange[3] = fertileDayStart.toString();
+		dateRange[4] = fertileDayStop.toString();
 
     		return dateRange;
 	}
 
-	public static int calculateFertiity() {
-		LocalDate  daysBefore = calculateOvulation.returnValue.minusDays(2);
-		LocalDate  fertileDayStart = dayBefore.minusDays(5);
-		LocalDate  daysAfter = returnValue.plusDays(2); 
-		return Period.between(daysBefore, fertileDayStart).getDays();
-	}
-
-	public static int calculatePeriodDate(String startDateTwo){
-		LocalDate menstrualCycleStartDate = LocalDate.parse(startDate);
-        	LocalDate currentDate = LocalDate.parse(startDateTwo);
-       		LocalDate days = Period.between(menstrualCycleStartDate, currentDate).getDays();
-		LocalDate nextPeriodDate = 
-
-
-	}
-	public static int calculateSafePeriod()
+	//lpublic static int calculateSafePeriod()
 }
