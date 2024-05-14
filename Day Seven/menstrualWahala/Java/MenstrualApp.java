@@ -39,15 +39,26 @@ public class MenstrualApp {
 
 		String [ ] dateRange = new String[3];
     		dateRange[0] = daysBefore.toString();
-    		dateRange[1] = returnValue.toString();
+    		dateRange[1] = returnValue.toString() ;
     		dateRange[2] = daysAfter.toString();
 
     		return dateRange;
 	}
 
-	//public static int calculateFertiity() {
-		//LocalDate  daysBefore = calculateOvulation.returnValue.minusDays(2);
-		//LocalDate  fertileDayStart = dayBefore.minusDays(5);
-		//return Period.between(daysBefore, fertileDayStart).getDays();
-	//}
+	public static int calculateFertiity() {
+		LocalDate  daysBefore = calculateOvulation.returnValue.minusDays(2);
+		LocalDate  fertileDayStart = dayBefore.minusDays(5);
+		LocalDate  daysAfter = returnValue.plusDays(2); 
+		return Period.between(daysBefore, fertileDayStart).getDays();
+	}
+
+	public static int calculatePeriodDate(String startDateTwo){
+		LocalDate menstrualCycleStartDate = LocalDate.parse(startDate);
+        	LocalDate currentDate = LocalDate.parse(startDateTwo);
+       		LocalDate days = Period.between(menstrualCycleStartDate, currentDate).getDays();
+		LocalDate nextPeriodDate = 
+
+
+	}
+	public static int calculateSafePeriod()
 }
