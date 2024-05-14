@@ -6,6 +6,32 @@ public class MenstrualApp {
     	public static void main(String... args) {
         	Scanner scanner = new Scanner(System.in);
 
+		System.out.println("=".repeat(30));
+		System.out.println("Avoid Belle Calculator")
+		System.out.println("=".repeat(30));
+
+		String prompt = """
+		\n Select one
+		"1" -> Get menstration tips
+		"2" -> Calculate cycle length and know safe days
+		"3" -> Pregnancy tips
+		"4" -> Get Ovulation tips
+		"5" -> General Female health
+		""";
+
+		System.out.println(prompt);
+		String userInput = sc.nextInt();
+
+		switch(userInput){
+			case 1: {
+				System
+				break;
+			}
+
+
+
+		}
+
         	System.out.println("Enter the start date of your last menstrual cycle (YYYY-MM-DD): ");
         	String startDate = scanner.nextLine();
         	
@@ -14,16 +40,24 @@ public class MenstrualApp {
 
 		int days = calculateMenstrualCycle(startDate, startDateTwo);
 			if (days < 21 && days >35){
-				System.out.println("Days since last menstrual cycle : " + days + " you have an abnormal cycle, please see a doctor");
+				System.out.println("Cycle Length (Days): " + days + " you have an abnormal cycle length, please see a doctor");
 			}else{
-				System.out.println("Days since last menstrual cycle: " + days);
+				System.out.println("Cycle Length (Days): " + days);
 			}
 
 		String [ ] ovulationRange = calculateOvulation(startDateTwo);
 				System.out.println("Ovulation period: " + ovulationRange[0] + " to " + ovulationRange[2]);
 				System.out.println("\nYou are fertile from: "+ ovulationRange[3] + " to " + ovulationRange[4] + "\nYou have a high chance of getting pregnant");
-			
+
+		
+		System.out.println("\nHow many days does your period last for");
+		int periodDays = scanner.nextInt();
+		
+
     	}
+	public static String menstrationtips(){
+		
+	}
 
     	public static int calculateMenstrualCycle(String startDate, String startDateTwo) {
         	LocalDate menstrualCycleStartDate = LocalDate.parse(startDate);
@@ -50,5 +84,9 @@ public class MenstrualApp {
     		return dateRange;
 	}
 
-	//lpublic static int calculateSafePeriod()
+	public static int calculateSafePeriod() {
+		LocalDate 
+
+	}
+
 }
