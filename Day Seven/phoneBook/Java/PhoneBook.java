@@ -9,6 +9,10 @@ public class PhoneBook {
     	static ArrayList<String> emailStorage = new ArrayList<>();
 
     	public static void main(String... args){
+
+		int userResponse ;
+		while (!userResponse.equals("0")) {
+
         	String prompt = """
         	: : : : : : : : : : : : : : : : : :         
         	:: Welcome to your new phonebook ::
@@ -24,8 +28,8 @@ public class PhoneBook {
         	""";
 
         	System.out.println(prompt);
-        	int userResponse = input.nextInt();
-		input.nextLine;
+        	userResponse = input.nextInt();
+		input.nextLine();
 
         	switch(userResponse){
             		case 1: {
@@ -52,12 +56,17 @@ public class PhoneBook {
 				System.out.println(editContact());
 				break;
 			}
+			case 0:{
+				System.out.println("Afeez hope you enjoyed using your new phonebook, Goodbye");
+				break;
+			}
 			default:{
 				System.out.println("Invalid Selection, Select option between 1 to 6");
 				break;
 			}
         	}
     	}
+}
 
     	public static String addContact(){
 
@@ -87,6 +96,7 @@ public class PhoneBook {
         	String removeName = input.nextLine();
 
         	int index = firstNameStorage.indexOf(removeName);
+
        	 	if (index != -1) {
             		firstNameStorage.remove(index);
             		lastNameStorage.remove(index);
@@ -112,20 +122,31 @@ public class PhoneBook {
 	
 	public static String findContactByFirstName(){
 		System.out.print("Enter contact first name: ");
-		String firstNameSearch = input.nextLine();
-		
-		return "Contact found!";
+        	String firstNameSearch = input.nextLine();
+        	int index = firstNameStorage.indexOf(firstNameSearch);
+        	if (index != -1) {
+            		return "Contact found: " + firstNameStorage.get(index) + " " + lastNameStorage.get(index);
+        	} else {
+            		return "Contact not found!";
+        	}
 	}
 
 	public static String findContactByLastName(){
-		System.out.print("Enter contact first name: ");
-		String firstNameSearch = input.nextLine();
-	
-		return "Contact found!";
-
+		System.out.print("Enter contact last name: ");
+        	String lastNameSearch = input.nextLine();
+        	int index = lastNameStorage.indexOf(lastNameSearch);
+        	if (index != -1) {
+            		return "Contact found: " + firstNameStorage.get(index) + " " + lastNameStorage.get(index);
+        	} else {
+            		return "Contact not found!";
+        	}
 	}
 
 	public static String editContact(){
+		System.out.print("Enter first name of the contact you want to edit: ");
+        	String editName = input.nextLine();
+        	int index = firstNameStorage.indexOf(editName);
+
 		
 		return "Sucessfully edited";
 	}
