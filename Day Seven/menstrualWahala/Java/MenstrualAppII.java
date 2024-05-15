@@ -28,7 +28,7 @@ public class MenstrualApp {
 
 		String [ ] ovulationRange = calculateOvulation(startDateTwo);
 				System.out.println("Ovulation period: " + ovulationRange[0] + " to " + ovulationRange[2]);
-				System.out.println("\nYou are fertile from: "+ ovulationRange[3] + " to " + ovulationRange[4] + "\nYou have a high chance of getting pregnant")
+				System.out.println("\nYou are fertile from: "+ ovulationRange[3] + " to " + ovulationRange[4] + "\nYou have a high chance of getting pregnant");
 
 		
 		System.out.println("\nHow many days does your period last for");
