@@ -3,9 +3,12 @@ import java.time.temporal.ChronoUnit;
 import java.time.Period;
 import java.util.Scanner;
 
-public class MenstrualAppII {
+public class MenstrualApp {
     	public static void main(String... args) {
         	Scanner scanner = new Scanner(System.in);
+
+		String userInput = "";
+		while (!userInput.equals("6")) {
 
 		System.out.println("=".repeat(26));
 		System.out.println("  Avoid Belle Calculator");
@@ -18,10 +21,11 @@ public class MenstrualAppII {
 		"3" -> Pregnancy tips
 		"4" -> Get Ovulation tips
 		"5" -> General Female health
+		"6" -> Quit
 		""";
 
 		System.out.println(prompt);
-		String userInput = scanner.nextLine();
+		userInput = scanner.nextLine();
 
 		switch(userInput){
 			case "1": {
@@ -30,6 +34,9 @@ public class MenstrualAppII {
 				break;
 			}
 			case "2":{
+
+				System.out.println("Hey Beautiful ! whats your name: ");
+				String userName = scanner.nextLine();
 
 				System.out.println("Enter the start date of your last menstrual cycle (YYYY-MM-DD): ");
         			String startDate = scanner.nextLine();
@@ -42,36 +49,50 @@ public class MenstrualAppII {
 
 				long days = calculateMenstrualCycle(startDate, startDateTwo);
 					if (days < 21 || days >35){
-						System.out.println("\nYour Cycle Length is: " + days + " days "+ "\nyou have an abnormal cycle length, please see a doctor");
+						System.out.println("\nHey " + userName + " your Cycle Length is: " + days + " days "+ "\nyou have an abnormal cycle length, please see a doctor");
 					}else{
-						System.out.println("\nYour Cycle Length is: " + days + " days ");
+						System.out.println("\nHey " + userName + " your Cycle Length is: " + days + " days ");
 					}
 				int cycleLength = (int) days;
 
 				String [ ] ovulationRange = calculateOvulation(startDateTwo);
-				System.out.println("\nYour ovulation period: " + ovulationRange[0] + " to " + ovulationRange[2]);
+				System.out.println("\n" + userName + " your ovulation period if from: " + ovulationRange[0] + " to " + ovulationRange[2]);
 				System.out.println("\nYou are fertile from: "+ ovulationRange[3] + " to " + ovulationRange[4] + "\nYou have a high chance of getting pregnant");
 
 
 				String [] safeDaysResult = calculateSafeDays(startDateTwo, periodDays, cycleLength);
     				System.out.println("\nSafe days are from " + safeDaysResult[0] + " to " + safeDaysResult[1] + " and from " + safeDaysResult[2] + " to " + safeDaysResult[3]);
+				System.out.println("\n" + userName + " your next period flow is : " + safeDaysResult[4]);
 
-
+				break;
+			}
+			case "3":{
+				System.out.print("PREGNANCY TIPs\n");
+				System.out.print(pregnancyTips());
+				break;
+			}
+			case "4":{
+				System.out.print("OVULATION TIPs\n");
+				System.out.print(ovulationTips());
+				break;
+			}
+			case "5":{
+				System.out.print("General Female Health\n");
+				System.out.print(ovulationTips());
+				break;
+			}
+			case "6":{
+				System.out.println("Thank you for using the Avoid Belle Calculator. Enjoy Sex Responsibly!");
 				break;
 			}
 			default: {
         			System.out.println("Invalid input. Please enter a number between 1 and 5.");
       				 break;
 			}
-
-
-		}
-
-
-		
-
+		}	
     	}
 
+	}
     	public static long calculateMenstrualCycle(String startDate, String startDateTwo) {
         	LocalDate menstrualCycleStartDate = LocalDate.parse(startDate);
         	LocalDate currentDate = LocalDate.parse(startDateTwo);
@@ -106,21 +127,25 @@ public class MenstrualAppII {
     		LocalDate  fertileDayStart = daysBefore.minusDays(5);
     		LocalDate  fertileDayStop = daysAfter.plusDays(2);
 
+		LocalDate nextFlow  = date.plusDays(cycleLength);
+		LocalDate nextFlowStop  = nextFlow.plusDays(periodDays);
+
     		LocalDate safeDayStart = date.plusDays(periodDays);
     		LocalDate safeDayStop = fertileDayStart.minusDays(1);
     		LocalDate safeDayStartAfterOvulation = fertileDayStop.plusDays(1);
     		LocalDate endOfCycle = date.plusDays(cycleLength);
 
-    		String [ ] dateRange = new String[4];
+    		String [ ] dateRange = new String[6];
     		dateRange[0] = safeDayStart.toString();
     		dateRange[1] = safeDayStop.toString();
     		dateRange[2] = safeDayStartAfterOvulation.toString();
     		dateRange[3] = endOfCycle.toString();
+		dateRange[4] = nextFlow.toString();
+		dateRange[5] = nextFlowStop.toString();
 
     		return dateRange;
 	}
-
-
+	
 	public static String menstrationTips(){
 
 	String tips = """
@@ -151,6 +176,65 @@ public class MenstrualAppII {
     	return tips;
 
 	}
+	
+	public static String pregnancyTips(){
+	
+	String pTips = """
+	PREGNANCY DOs\n
+	1. Do take a multivitamin
+	Eating a balanced diet that’s rich in vitamins and minerals 
+	is the best way to provide your body with all of the healthy nutrients it needs to support a growing baby. 
+	A healthy diet alone, however, may not be enough for pregnancy.\n
 
+	Prenatal vitamins contain higher levels of certain nutrients 
+	that expectant mothers require at higher doses, such as:\n
 
+	1. folic acid
+	2. calcium
+	3. iron
+	These vitamins assist with proper development of the fetus and help prevent birth defects.
+	 Your doctor can help you find a multivitamin or a series of vitamins that are best for you.\n
+
+	A multivitamin will usually include DHA, EPA, or both. 
+	These are omega-3 fats that are important for your baby’s proper brain development.\n
+
+	Don’t take more than one dose of multivitamins, though. 
+	Some vitamins in higher amounts can be harmful to the baby.\n
+
+	Shop for multivitamins online.\n\n
+
+	PREGNANCY DONT\n
+	1. Don’t smoke
+	Babies born to women who smoke during pregnancy are more likely
+	to have a lower birth weight and are at a greater risk for learning disabilities 
+	than children born to nonsmoking mothers.\n
+
+	Additionally, children born to women who smoke are more likely 
+	to try smoking at a younger age and become regular smokers earlier, due to physiologic nicotine addiction.\n
+
+	2. Don’t drink alcohol
+	Alcohol may greatly impact your baby’s development. 
+	People who drink alcohol while pregnant couldTrusted Source deliver a baby with fetal alcohol syndrome (FAS).\n
+
+	Symptoms of FAS include:\n
+
+	low birth weight
+	learning disabilities
+	behavior problems
+	lagging patterns in terms of growth and development milestones
+	Even small amounts of alcohol can be a problem. There appears to be no safe level of alcohol intake in pregnancy.\n
+
+	If you need help stopping drinking while you’re pregnant, talk with your doctor as soon as possible. 
+	The sooner you get help, the healthier your baby is likely to be.
+
+	""";
+	return pTips;
+	}
+	public static String ovulationTips(){
+	String oTips = """
+	NO GO KNACK IF YOU NO WAN GET BELLE O!!!!!
+	""";
+	return oTips;
+	}
 }
+

@@ -10,8 +10,8 @@ public class PhoneBook {
 
     	public static void main(String... args){
 
-		int userResponse ;
-		while (!userResponse.equals("0")) {
+		int userResponse = 9;
+		while (userResponse != 0) {
 
         	String prompt = """
         	: : : : : : : : : : : : : : : : : :         

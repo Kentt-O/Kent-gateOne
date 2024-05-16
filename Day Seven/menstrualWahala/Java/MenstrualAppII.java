@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.util.Scanner;
 
-public class MenstrualApp {
+public class MenstrualAppII {
     	public static void main(String... args) {
         	Scanner scanner = new Scanner(System.in);
 
